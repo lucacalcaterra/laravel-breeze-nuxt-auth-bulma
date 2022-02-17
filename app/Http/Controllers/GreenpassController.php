@@ -17,10 +17,9 @@ class GreenpassController extends Controller
     public function index()
 
     {
-        $gp_string= '';
+        $gp_string= env('GREENPASS_TEST_CERT');
         $gp_reader = new CertificateValidator($gp_string);
         $gp_info = $gp_reader->getCertificateSimple();
-        dd($gp_info);
 
         return response()->json($gp_info);
     }
